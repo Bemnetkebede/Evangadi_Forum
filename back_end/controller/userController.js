@@ -224,4 +224,8 @@ async function signUp(req, res) {
 //     });
 // });
 
-module.exports = {login , signUp}
+async function checkUser(req , res) {
+    res.json("work correctly")
+}
+
+module.exports = {login , signUp , checkUser}
