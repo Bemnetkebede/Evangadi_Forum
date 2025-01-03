@@ -4,6 +4,7 @@ const { getAnswersForQuestion , giveAnswer } = require('../controller/AnswerCont
 const authMiddleWare = require('../middleWare/authMiddleWare')
 
 router.get('/answer/:question_id',authMiddleWare ,getAnswersForQuestion)
-router.post('/giveAnswer' , authMiddleWare , giveAnswer)
+
+router.post('/giveAnswer', giveAnswer);
 
 module.exports = router

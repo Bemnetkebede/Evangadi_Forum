@@ -8,10 +8,8 @@ const router = express.Router();
 const dbConnection = require('../db/dbConfig');
 
 router.post('/login',  login);
-
-        
-
 router.post('/signup',  signUp);
-router.get('/checkUser' , checkUser)
+
+router.get('/checkUser', authMiddleWare, checkUser); 
 
 module.exports = router
