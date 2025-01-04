@@ -8,7 +8,21 @@ const dbConnection = require('./db/dbConfig')
 
 
 const app = express()
-app.use(cors())
+const cors = require('cors');
+
+const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com']; // Add your frontend URL
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    credentials: true, // Allow credentials (e.g., cookies, auth headers)
+}));
+
 app.use(express.json());
 
 async function start() {
