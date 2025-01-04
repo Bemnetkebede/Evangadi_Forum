@@ -9,7 +9,7 @@ const dbConnection = require('./db/dbConfig')
 
 const app = express()
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://your-frontend-domain.com'], // Frontend origins
+    origin: ['http://localhost:3000', 'https://calm-lolly-0d72cd.netlify.app'], // Frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true, // Allow credentials
