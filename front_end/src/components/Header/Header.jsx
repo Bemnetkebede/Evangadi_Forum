@@ -1,6 +1,6 @@
 import  { useContext } from "react";
 import classes from "./header.module.css";
-import EvangadiLogo from "../../Assets/Images/evangadi-logo-header.png";
+import Logo from "../../assets/Images/evangadi-logo-header.png";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
@@ -11,7 +11,7 @@ function Header() {
   const userId = user?.userid;
 
   const handleSignOut = () => {
-    localStorage.removeItem("EV-Forum-token-G3-APR2024"); //remove the auth token
+    localStorage.removeItem("EV-Forum-token"); //remove the auth token
     window.location.replace("/auth"); //redirect to auth page so that user can login again
   };
 
@@ -23,7 +23,7 @@ function Header() {
         <Container className={classes.header_container}>
           <Navbar.Brand href="/">
             <img
-              src={EvangadiLogo}
+              src={Logo}
               className="d-inline-block align-top"
               alt="Evangadi Logo"
               width="200"
