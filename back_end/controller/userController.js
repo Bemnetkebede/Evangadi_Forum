@@ -115,7 +115,7 @@ async function signUp(req, res) {
 
     try {
         // Check if the email already exists
-        const [existingUser] = await dbConnection.execute('SELECT * FROM UserTable WHERE email = ?', [email]);
+        const [existingUser] = await dbConnection.execute('SELECT * FROM userTable WHERE email = ?', [email]);
 
         if (existingUser.length > 0) {
             return res.status(400).json({ message: 'Email already exists' });
@@ -126,7 +126,7 @@ async function signUp(req, res) {
 
         // Insert new user into the database
         await dbConnection.execute(
-            'INSERT INTO UserTable (username, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)',
+            'INSERT INTO userTable (username, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)',
             [username, firstName, LastName, email, hashedPassword]
         );
 

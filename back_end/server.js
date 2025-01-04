@@ -14,7 +14,7 @@ app.use(express.json());
 async function start() {
     try{
         const result = await dbConnection.execute("SELECT 'test'")
-        PORT = process.env.port || 4000
+        PORT = process.env.PORT || 4000
         app.listen(PORT , (err)=>{
         if(err) console.log(err)
         console.log('succesfully connected to DB')

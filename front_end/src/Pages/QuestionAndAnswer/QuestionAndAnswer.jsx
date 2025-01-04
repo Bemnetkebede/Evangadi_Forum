@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 function QuestionAndAnswer() {
   const [questionDetails, setQuestionDetails] = useState({});
   const { user } = useContext(UserState);
-  const userId = user?.userid;
+  const userId = user?.userID;
   const { questionId } = useParams();
   console.log("questionId:", questionId);
   const [loading, setLoading] = useState(true);
@@ -65,12 +65,26 @@ function QuestionAndAnswer() {
   // Post a new answer to the question
 async function handlePostAnswer(e) {
     e.preventDefault();
+    const answer = answerInput.current.value;
+    const questionID = questionId;
+    const userID = userId;
+    console.log(questionId)
+    console.log(userId)
+    console.log(answerInput.current.value)
+      
     const response = await axiosInstance.post("/giveAnswer", {
-      questionID: questionId,
-      userID: userId,
-      answer: answerInput.current.value,
+      questionID,
+      userID,
+      answer
       });
+    
       try {
+        const response = await axiosInstance.post("/giveAnswer", {
+          questionID: questionId,
+          userID: userId,
+          answer: answerInput.current.value,
+        });
+      
         if (response.status === 201) {
           Swal.fire({
             title: "Success!",
@@ -88,7 +102,8 @@ async function handlePostAnswer(e) {
             confirmButtonText: "OK",
           });
         }
-      } catch (error) {
+      } catch (Error) {
+        console.error("Error posting answer:", Error);  // Log the error to console
         Swal.fire({
           title: "Error",
           text: "Failed to post answer. Please try again later.",
@@ -96,6 +111,7 @@ async function handlePostAnswer(e) {
           confirmButtonText: "OK",
         });
       }
+      
     }
   
   

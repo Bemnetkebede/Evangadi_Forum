@@ -45,7 +45,7 @@ async function getSingleQuestion(req, res) {
         u2.username AS question_username,
         a.answerid AS answer_id,
         a.answer,
-        a.created_at AS answer_created_at,
+        a.createdAt AS answer_created_at,
         u.username AS answer_username
         FROM 
         questionTable q
@@ -58,7 +58,7 @@ async function getSingleQuestion(req, res) {
         WHERE 
         q.questionID = ?
         ORDER BY 
-        a.created_at DESC
+        a.createdAt DESC
     `;
 
     try {

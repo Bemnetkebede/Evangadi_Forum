@@ -15,7 +15,7 @@ async function getAnswersForQuestion(req , res) {
                 a.answerID AS answer_id, 
                 a.answer AS content, 
                 u.username AS user_name, 
-                a.created_at AS created_at 
+                a.createdAt AS created_at 
             FROM answerTable a 
             JOIN userTable u ON a.userID = u.userID 
             WHERE a.questionID = ?`;
@@ -42,6 +42,9 @@ async function getAnswersForQuestion(req , res) {
 
 async function giveAnswer(req, res) {
     const { questionID, userID, answer } = req.body;
+    console.log(questionID)
+    console.log(userID)
+    console.log(answer)
 
     // Validate input
     if (!questionID || !userID || !answer) {
