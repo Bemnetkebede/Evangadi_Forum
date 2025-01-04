@@ -4,7 +4,7 @@ import FacebookOutlined from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
-import footerLogo from "../../Assets/Images/evangadi-logo-footer.png";
+import footerLogo from "../../assets/Images/evangadi-logo-footer.png";
 
 function Footer() {
   return (
